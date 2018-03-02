@@ -1,9 +1,9 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 25
+    compileSdkVersion 26
     buildToolsVersion "26.0.2"
     defaultConfig {
         applicationId "com.ykf.wandroid"
@@ -12,6 +12,23 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    dataBinding {
+        enabled = true
+    }
+    kapt {
+        generateStubs = true
+    }
+    productFlavors {
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
     }
     buildTypes {
         release {
@@ -26,9 +43,35 @@ dependencies {
     androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.1', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:25.4.0'
-    testImplementation 'junit:junit:4.12'
-    implementation 'com.android.support:design:25.4.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation deps.kotlin.stdlib
+    kapt "com.android.databinding:compiler:3.0.0-alpha3"
+    implementation deps.support.app_compat
+    implementation deps.support.recyclerview
+    implementation deps.support.cardview
+    implementation deps.support.design
+    implementation deps.room.runtime
+    implementation deps.lifecycle.runtime
+    implementation deps.lifecycle.extensions
+    implementation deps.lifecycle.java8
+    implementation deps.retrofit.runtime
+    implementation deps.retrofit.gson
+    implementation deps.okhttp_logging_interceptor
+    implementation deps.retrofit.rxjava_adapter
+    implementation deps.glide
+
+    implementation deps.rxjava2
+    implementation deps.rx_android
+
+    implementation deps.dagger.runtime
+    implementation deps.dagger.android
+    implementation deps.dagger.android_support
+    implementation deps.constraint_layout
+
+    implementation deps.timber
+
+    annotationProcessor deps.dagger.android_support_compiler
+    annotationProcessor deps.dagger.compiler
+    annotationProcessor deps.room.compiler
+    annotationProcessor deps.lifecycle.compiler
+    compile 'com.youth.banner:banner:1.4.10'
 }

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.ykf.wandroid.vo.Resource" />
+
+        <import type="com.ykf.wandroid.vo.Status" />
+
+        <variable
+            name="isLoading"
+            type="boolean" />
+
+        <variable
+            name="resource"
+            type="Resource" />
+    </data>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:isRefresh="@{resource.status == Status.LOADING}"
+            app:visibleGone="@{resource.status != Status.ERROR}">
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="LinearLayoutManager"
+                tools:listitem="@layout/item_article">
+
+            </android.support.v7.widget.RecyclerView>
+
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+        <include
+            layout="@layout/loading_state"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:resource="@{resource}" />
+    </FrameLayout>
+
+
+</layout>
