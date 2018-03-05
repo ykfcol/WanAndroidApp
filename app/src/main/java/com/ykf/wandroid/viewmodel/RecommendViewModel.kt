@@ -11,7 +11,6 @@ import com.ykf.wandroid.vo.Resource
  * Created by ykf on 18/2/28.
  */
 class RecommendViewModel : BaseViewModel() {
-
     val page = 0
     val mArticleList = MutableLiveData<Resource<List<Article>>>()
     val mBannerList = MutableLiveData<Resource<List<Banner>>>()

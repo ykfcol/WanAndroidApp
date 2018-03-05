@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <import type="com.ykf.wandroid.vo.Resource" />
 
         <import type="com.ykf.wandroid.vo.Status" />
@@ -25,7 +24,6 @@
             android:layout_height="match_parent"
             app:isRefresh="@{resource.status == Status.LOADING}"
             app:visibleGone="@{resource.status != Status.ERROR}">
-
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rv"

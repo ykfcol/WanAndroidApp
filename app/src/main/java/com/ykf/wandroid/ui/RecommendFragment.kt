@@ -8,11 +8,9 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.qs.jzandroid.extension.toast
 import com.ykf.wandroid.R
 import com.ykf.wandroid.databinding.FragmentRecommendBinding
 import com.ykf.wandroid.ui.adapter.ArticleAdapter
-import com.ykf.wandroid.ui.adapter.TestAdapter
 import com.ykf.wandroid.util.GlideImageLoader
 import com.ykf.wandroid.viewmodel.RecommendViewModel
 import com.youth.banner.Banner
@@ -26,7 +24,7 @@ class RecommendFragment : Fragment() {
     private lateinit var binding: FragmentRecommendBinding
     private lateinit var model: RecommendViewModel
 
-    lateinit var banner: Banner
+    private lateinit var banner: Banner
     val mArticleAdapter = ArticleAdapter()
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -44,11 +42,13 @@ class RecommendFragment : Fragment() {
         mArticleAdapter.addHeaderView(headerView)
 
         model = ViewModelProviders.of(this).get(RecommendViewModel::class.java)
+
         model.mArticleList.observe(this, Observer {
             mArticleAdapter.setArticleList(it?.data)
             binding.resource = it
             binding.executePendingBindings()
         })
+
         model.mBannerList.observe(this, Observer {
             val images = mutableListOf<String>()
             val titles = mutableListOf<String>()
@@ -63,6 +63,7 @@ class RecommendFragment : Fragment() {
                     .setImageLoader(GlideImageLoader())
                     .start()
         })
+
         binding.swipeLayout.setOnRefreshListener { model.getArticleList() }
     }
 

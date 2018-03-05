@@ -3,6 +3,7 @@ package com.ykf.wandroid.ui.adapter
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import com.ykf.wandroid.ui.CategoryFragment
+import com.ykf.wandroid.ui.HotSearchFragment
 import com.ykf.wandroid.ui.RecommendFragment
 
 /**
@@ -14,6 +15,8 @@ class MainPagerAdapter(fm : FragmentManager) : FragmentPagerAdapter(fm) {
     override fun getItem(position: Int) =
             when (position) {
                 0 -> RecommendFragment()
+                1 -> CategoryFragment()
+                2 -> HotSearchFragment()
                 else -> CategoryFragment()
             }
 

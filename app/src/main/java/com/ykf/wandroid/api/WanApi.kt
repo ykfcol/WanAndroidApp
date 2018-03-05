@@ -3,6 +3,8 @@ package com.ykf.wandroid.api
 import android.util.Log
 import com.ykf.wandroid.vo.ArticleData
 import com.ykf.wandroid.vo.Banner
+import com.ykf.wandroid.vo.Category
+import com.ykf.wandroid.vo.HotKey
 import io.reactivex.Observable
 import okhttp3.HttpUrl
 import okhttp3.OkHttpClient
@@ -22,6 +24,13 @@ interface WanApi {
 
     @GET("banner/json")
     fun getBannerList(): Observable<ApiResponse<List<Banner>>>
+
+
+    @GET("tree/json")
+    fun getCategoryList(): Observable<ApiResponse<List<Category>>>
+
+    @GET("hotkey/json")
+    fun getHotKey(): Observable<ApiResponse<List<HotKey>>>
 
 
     companion object {

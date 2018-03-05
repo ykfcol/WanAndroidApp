@@ -74,4 +74,6 @@ dependencies {
     annotationProcessor deps.room.compiler
     annotationProcessor deps.lifecycle.compiler
     compile 'com.youth.banner:banner:1.4.10'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.hyman:flowlayout-lib:1.1.2'
 }
