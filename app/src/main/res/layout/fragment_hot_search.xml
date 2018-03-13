@@ -30,12 +30,12 @@
             android:paddingLeft="16dp"
             android:text="常用网站" />
 
-        <com.zhy.view.flowlayout.FlowLayout
+        <com.zhy.view.flowlayout.TagFlowLayout
             android:id="@+id/fl_normal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
 
-        </com.zhy.view.flowlayout.FlowLayout>
+        </com.zhy.view.flowlayout.TagFlowLayout>
     </LinearLayout>
 </layout>
