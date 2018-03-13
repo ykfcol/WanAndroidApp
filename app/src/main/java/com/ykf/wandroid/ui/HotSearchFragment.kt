@@ -42,7 +42,7 @@ class HotSearchFragment : Fragment() {
         })
 
         "master".toast()
-        binding.flHot.setOnTagClickListener { p0, p1, p2 -> false }
+        binding.flHot.setOnTagClickListener { p0, p1, p2 -> true }
 
         binding.flHot.adapter = object : TagAdapter<String>(mValues) {
             override fun getView(parent: FlowLayout, position: Int, s: String): View {
