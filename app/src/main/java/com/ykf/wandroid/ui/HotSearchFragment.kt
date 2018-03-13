@@ -63,6 +63,15 @@ class HotSearchFragment : Fragment() {
 
         }
 
+        binding.flNormal.adapter = object : TagAdapter<String>(mValues) {
+            override fun getView(p0: FlowLayout?, p1: Int, s: String?): View {
+                val tv = LayoutInflater.from(context).inflate(R.layout.item_flow,
+                        binding.flHot, false) as TextView
+                tv.text = s
+                return tv
+            }
+        }
+
 
     }
 }
