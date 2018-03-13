@@ -13,10 +13,8 @@ import com.ykf.wandroid.databinding.FragmentHotSearchBinding
 import com.ykf.wandroid.viewmodel.HotSearchViewModel
 import com.zhy.view.flowlayout.FlowLayout
 import com.zhy.view.flowlayout.TagAdapter
-import android.databinding.adapters.TextViewBindingAdapter.setText
 import android.widget.TextView
 import com.qs.jzandroid.extension.toast
-import com.zhy.view.flowlayout.TagFlowLayout
 
 
 /**
@@ -46,6 +44,7 @@ class HotSearchFragment : Fragment() {
         "master".toast()
         "dev".toast()
         "bug".toast()
+        "stash".toast()
         binding.flHot.setOnTagClickListener { p0, p1, p2 -> false }
 
         binding.flHot.adapter = object : TagAdapter<String>(mValues) {
