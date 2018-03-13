@@ -14,6 +14,7 @@ import com.ykf.wandroid.viewmodel.HotSearchViewModel
 import com.zhy.view.flowlayout.FlowLayout
 import com.zhy.view.flowlayout.TagAdapter
 import android.widget.TextView
+import com.qs.jzandroid.extension.logD
 import com.qs.jzandroid.extension.toast
 
 
@@ -61,6 +62,16 @@ class HotSearchFragment : Fragment() {
                 return tv
             }
 
+        }
+
+        binding.flNormal.adapter = object : TagAdapter<String>(mValues) {
+            override fun getView(p0: FlowLayout?, p1: Int, s: String?): View {
+                val tv = LayoutInflater.from(context).inflate(R.layout.item_flow,
+                        binding.flHot, false) as TextView
+                "test".logD()
+                tv.text = s
+                return tv
+            }
         }
 
 
