@@ -74,6 +74,8 @@ class HotSearchFragment : Fragment() {
             }
         }
 
+        "add test".logD()
+
 
     }
 }
