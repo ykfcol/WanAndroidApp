@@ -45,6 +45,7 @@ class HotSearchFragment : Fragment() {
 
         "master".toast()
         "dev".toast()
+        "bug".toast()
         binding.flHot.setOnTagClickListener { p0, p1, p2 -> false }
 
         binding.flHot.adapter = object : TagAdapter<String>(mValues) {
