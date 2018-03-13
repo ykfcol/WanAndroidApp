@@ -77,5 +77,6 @@ class HotSearchFragment : Fragment() {
         "add test".logD()
 
 
+        "git rebase dev".logD()
     }
 }
